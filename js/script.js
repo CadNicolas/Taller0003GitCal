@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var btnResultado = document.getElementById("resultado");
     var btnLimparTela = document.getElementById("limparTela");
     var btnApagarAnterior = document.getElementById("apagarAnterior");
+    var btnGrados = document.getElementById("grados");
 
     listenerBtn.push(document.getElementById("ponto"));
 
@@ -17,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     listenerBtn.push(document.getElementById("subtracao"));
     listenerBtn.push(document.getElementById("divisao"));
     listenerBtn.push(document.getElementById("multiplicacao"));
-
+    
     //teclas númericas da calculadora
     listenerBtn.push(document.getElementById("num0"));
     listenerBtn.push(document.getElementById("num1"));
@@ -37,6 +38,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     btnResultado.onclick = function () {
         verificarResulatado();
+    }
+
+    btnGrados.onclick = function () {
+        celAFahren();
+    }
+
+    function celAFahren() {
+        tela.value = (tela.value * 9/5) + 32;
     }
 
     function verificarResulatado() {
@@ -69,7 +78,6 @@ document.addEventListener("DOMContentLoaded", function () {
         if (this.value) {
             tela.value += this.value;
         }
-
     }
 
     btnApagarAnterior.onclick = function () {
@@ -103,4 +111,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    btnConvertir.onclick = function () {
+        convertir();
+    }
+    
 });
